@@ -13,4 +13,5 @@ echo "deploying file"
 scp $localfile $server:$remotefile
 echo "restarting server"
 ssh $server 'service tomcat7 restart'
+echo "removing local build result"
 rm $localfile
