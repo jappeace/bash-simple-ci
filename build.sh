@@ -1,7 +1,8 @@
 #! /bin/bash
 
-projectPath="~/berg"
-localfile="~/grails.war"
+
+projectPath="$HOME/berg"
+localfile="$HOME/grails.war"
 remotefile="/var/lib/tomcat7/web-apps/ROOT.war"
 
 cd $projectPath
