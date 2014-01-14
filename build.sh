@@ -15,6 +15,9 @@ grails prod war $localfile
 echo "stopping server"
 ssh $server 'service tomcat7 stop'
 
+echo "removing indexci"
+ssh $server 'rm -R '$tomcat'/berg.*'
+
 echo "removing old war file"
 ssh $server "rm $remotefile"
 
