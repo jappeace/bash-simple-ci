@@ -21,9 +21,11 @@ ssh $server 'rm -R '$tomcat'/berg.*'
 echo "removing old war file"
 ssh $server "rm $remotefile"
 
-echo "removing static"
-ssh $server "find $remotedir -mindepth 1 -maxdepth 1 -not -name 'uploads' | xargs rm -R"
+echo "moving uploads"
+ssh $server "mv $remotedir/uploads /root/uploads"
 
+echo "removing static"
+ssh $server "rm -R $remotedir"
 
 echo "removing cache"
 ssh $server "rm -R $cache/*"
@@ -33,6 +35,9 @@ scp $localfile $server:$remotefile
 
 echo "restarting server"
 ssh $server '/root/startServer.sh'
+
+echo "putting back uploads"
+ssh $server "mv /root/uploads $remotedir/uploads "
 
 echo "removing local build result"
 rm $localfile
