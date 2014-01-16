@@ -22,7 +22,7 @@ echo "removing old war file"
 ssh $server "rm $remotefile"
 
 echo "moving uploads"
-ssh $server "mv $remotedir/uploads /root/uploads"
+ssh $server "mv $remotedir/uploads /root/"
 
 echo "removing static"
 ssh $server "rm -R $remotedir"
@@ -37,7 +37,7 @@ echo "restarting server"
 ssh $server '/root/startServer.sh'
 
 echo "putting back uploads"
-ssh $server "mv /root/uploads $remotedir/uploads "
+ssh $server "mv /root/uploads $remotedir/ "
 
 echo "removing local build result"
 rm $localfile
