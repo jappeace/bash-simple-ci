@@ -22,7 +22,8 @@ echo "removing old war file"
 ssh $server "rm $remotefile"
 
 echo "removing static"
-ssh $server "rm -R $remotedir"
+ssh $server "find $remotedir -mindepth 1 -maxdepth 1 -not -name 'uploads' | xargs rm"
+
 
 echo "removing cache"
 ssh $server "rm -R $cache/*"
