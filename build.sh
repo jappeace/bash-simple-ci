@@ -22,7 +22,7 @@ echo "removing old war file"
 ssh $server "rm $remotefile"
 
 echo "removing static"
-ssh $server "find $remotedir -mindepth 1 -maxdepth 1 -not -name 'uploads' | xargs rm"
+ssh $server "find $remotedir -mindepth 1 -maxdepth 1 -not -name 'uploads' | xargs rm -R"
 
 
 echo "removing cache"
@@ -32,7 +32,7 @@ echo "deploying file"
 scp $localfile $server:$remotefile
 
 echo "restarting server"
-ssh $server 'service tomcat7 start'
+ssh $server '/root/startServer.sh'
 
 echo "removing local build result"
 rm $localfile
