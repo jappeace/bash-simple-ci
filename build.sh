@@ -1,12 +1,12 @@
 #! /bin/bash
 
-projectPath="$HOME/berg"
-localfile="$HOME/grails.war"
+projectPath="$HOME/kook"
+localfile="$HOME/kook.war"
 tomcat="/var/lib/tomcat7"
 remotedir="$tomcat/webapps/ROOT"
 remotefile=$remotedir".war"
 cache="$tomcat/work/Catalina"
-server=root@85.17.248.15
+server=jappie@jappieklooster.nl
 
 cd $projectPath
 echo "building file"
